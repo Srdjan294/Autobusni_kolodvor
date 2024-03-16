@@ -1,6 +1,7 @@
 ﻿using Backend.Data;
 using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
+using Faker;
 
 namespace Backend.Controllers
 {
@@ -30,6 +31,36 @@ namespace Backend.Controllers
         public IActionResult Post(Korisnik korisnik)
         {
             _context.Korisnici.Add(korisnik);
+            _context.SaveChanges();
+            return new JsonResult(korisnik);
+        }
+
+        [HttpPost]
+        [Route("dodavanje")]
+        public IActionResult PostUnos(int broj)
+        {
+
+            var korisnik = new Korisnik();
+
+            for (int i = 0; i < broj; i++)
+            {
+                korisnik = new Korisnik()
+                {
+                    Ime = Faker.Name.First(),
+                    Prezime = Faker.Name.Last(),
+                    BrojMobitela = Faker.Phone.Number(),
+                    Email = Faker.Internet.Email()
+
+
+                };
+
+
+
+                _context.Korisnici.Add(korisnik);
+               
+
+            }
+
             _context.SaveChanges();
             return new JsonResult(korisnik);
         }

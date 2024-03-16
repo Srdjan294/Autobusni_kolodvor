@@ -14,5 +14,7 @@ namespace Backend.Data
 
         public DbSet<Korisnik> Korisnici { get; set; }
 
+        public DbSet<Mjesto> Mjesta { get; set; }
+
     }
 }
