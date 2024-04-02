@@ -157,14 +157,14 @@ insert into relacije(polaziste, odrediste, cijena) values
 --Mursko Središće
 (40,10,4.76),
 --Našice
-(41,52,6.60),(41,51,4.20),(41,95,13.22),(41,18,6.60),(41,14,4.70),(41,61,6.00),(41,70,13.22),
+(41,52,6.60),(41,51,4.20),(41,95,13.22),(41,18,6.60),(41,14,4.70),(41,61,6.00),(41,70,13.22);
 
-select * from relacije;
+--select * from relacije;
 
-select a.naziv as polaziste, c.naziv as odrediste, b.cijena as cijena
-from mjesta a
-inner join relacije b on a.sifra = b.polaziste
-inner join mjesta c on c.sifra = b.odrediste;
+--select a.naziv as polaziste, c.naziv as odrediste, b.cijena as cijena
+--from mjesta a
+--inner join relacije b on a.sifra = b.polaziste
+--inner join mjesta c on c.sifra = b.odrediste;
 
 -- insert u korisnici
 
