@@ -1,7 +1,7 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { RoutesNames } from "../../constants";
-import SmjerService from "../../services/MjestoService";
+import MjestoService from "../../services/MjestoService";
 
 
 export default function MjestaDodaj(){
@@ -51,12 +51,12 @@ export default function MjestaDodaj(){
 
 
                 <Row>
-                    <Col xs={6} sm={6} md={3} lg={6} xl={1} xxl={2}>
+                    <Col>
                         <Link className="btn btn-danger siroko" to={RoutesNames.MJESTO_PREGLED}>
                             Odustani
                         </Link>
                     </Col>
-                    <Col xs={6} sm={6} md={9} lg={6} xl={1} xxl={10}>
+                    <Col>
                         <Button className="siroko" variant="primary" type="submit">
                             Dodaj
                         </Button>

@@ -9,6 +9,7 @@ import { RoutesNames } from './constants'
 import Pocetna from './pages/Pocetna'
 import Mjesta from './pages/mjesta/Mjesta'
 import MjestaDodaj from './pages/mjesta/MjestaDodaj'
+import MjestaPromjena from './pages/mjesta/MjestaPromjena'
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         <Route path={RoutesNames.HOME} element={<Pocetna />} />
 
         <Route path={RoutesNames.MJESTO_PREGLED} element={<Mjesta />} />
+        <Route path={RoutesNames.MJESTO_NOVI} element={<MjestaDodaj />} />
+        <Route path={RoutesNames.MJESTO_PROMJENI} element={<MjestaPromjena />} />
         
         
         

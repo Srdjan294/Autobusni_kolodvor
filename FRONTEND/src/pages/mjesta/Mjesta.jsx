@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import SmjerService from '../../services/MjestoService';
+import MjestoService from '../../services/MjestoService';
 import {Button, Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {RoutesNames} from '../../constants'
 
 
 
 export default function Mjesta(){
     const [mjesta, setMjesta] = useState();
-
+    const navigate = useNavigate();
 
     async function dohvatiMjesta(){
         await MjestoService.get()
@@ -25,17 +25,6 @@ export default function Mjesta(){
         dohvatiMjesta();
     },[]);
 
-    function formatirajVerificiran(v){
-        if(v==null){
-            return 'nije definirano';
-        }
-
-        if(v){
-            return 'DA';
-        }
-
-        return 'NE';
-    }
 
     async function obrisiAsync(sifra){
         const odgovor = await MjestoService._delete(sifra);
@@ -44,7 +33,7 @@ export default function Mjesta(){
             alert('Pogledaj konzolu');
             return;
         }
-        dohvatiSmjerove();
+        dohvatiMjesta();
 
     }
 
@@ -67,21 +56,18 @@ export default function Mjesta(){
                         {mjesta && mjesta.map((mjesto,index)=>(
                             <tr key={index}>
                                 <td>{mjesto.naziv}</td>
-                            
-                                <td>
-                                    {formatirajVerificiran(mjesto.verificiran)}
-                                    {/* 
-                                    {smjer.verificiran==null 
-                                    ? 'Nije definirano'
-                                    : smjer.verificiran ? 'DA' : 'NE'}
-                                    */}
-                                </td>
                                 <td>
                                     <Button
                                     onClick={() => obrisi(mjesto.sifra)}
                                     variant = 'danger'
                                     >
                                     Obriši
+                                    </Button>
+
+                                    <Button
+                                    onClick={() => {navigate(`/mjesta/${mjesto.sifra}`)}}
+                                    >
+                                    Promjeni
                                     </Button>
                                 </td>
                             </tr>

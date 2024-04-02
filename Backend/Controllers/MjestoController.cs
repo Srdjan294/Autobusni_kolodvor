@@ -22,8 +22,16 @@ namespace Backend.Controllers
             return new JsonResult(_context.Mjesta.ToList());
         }
 
-        [HttpPost]
+        
 
+        [HttpGet]
+        [Route("{sifra:int}")]
+        public IActionResult GetBySifra(int sifra)
+        {
+            return new JsonResult(_context.Mjesta.Find(sifra));
+        }
+
+        [HttpPost]
         public IActionResult Post(Mjesto mjesto)
         {
             _context.Mjesta.Add(mjesto);
@@ -33,18 +41,22 @@ namespace Backend.Controllers
 
         [HttpPut]
         [Route("{sifra:int}")]
-
-        public IActionResult Put(int sifra,Mjesto mjesto)
+        public IActionResult Put(int sifra, Mjesto mjesto)
         {
             var mjestoIzBaze = _context.Mjesta.Find(sifra);
-
+            // za sada ručno, kasnije će doći Mapper
             mjestoIzBaze.Naziv = mjesto.Naziv;
+            
 
             _context.Mjesta.Update(mjestoIzBaze);
             _context.SaveChanges();
 
             return new JsonResult(mjestoIzBaze);
         }
+
+
+
+        
 
         [HttpDelete]
         [Route("{sifra:int}")]
@@ -57,6 +69,8 @@ namespace Backend.Controllers
             _context.SaveChanges();
             return new JsonResult(new { poruka = "Obrisano" });
         }
+
+        
     }
 
 }
