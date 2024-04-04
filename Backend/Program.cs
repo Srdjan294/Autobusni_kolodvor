@@ -2,12 +2,7 @@
 using Backend.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
+
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
@@ -60,6 +55,4 @@ namespace Backend
             // završio za potrebe produkcije
 
             app.Run();
-        }
-    }
-}
+        
