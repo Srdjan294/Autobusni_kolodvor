@@ -1,9 +1,15 @@
-﻿namespace Backend.Models
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Backend.Models
 {
-    public class Relacija
+    public class Relacija:Entitet
     {
-        public string? Polaziste { get; set; }
-        public string? Odrediste { get; set; }
+        [ForeignKey("mjesto")] 
+        public Mjesto? Polaziste { get; set; }
+
+        [ForeignKey("mjesto")]
+        public Mjesto? Odrediste { get; set; }
         public decimal? Cijena { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using Backend.Models;
 using Backend.Mappers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace Backend.Controllers
 {
@@ -17,6 +18,21 @@ namespace Backend.Controllers
 
         protected override void KontrolaBrisanje(Mjesto entitet)
         {
+
+            var lista = _context.Relacije
+                .Include(x => x.Mjesto)
+                .Where(x => x.Mjesto.Sifra == entitet.Sifra)
+                .ToList();
+            if (lista != null &&  lista.Count > 0) 
+            {
+                StringBuilder sb = new();
+                sb.Append("Mjesto se ne može obrisati jer je postavljen na relacijama: ");
+                foreach (var e in lista) 
+                {
+                    sb.Append(e.Naziv).Append(", ");
+                }
+                throw new Exception(sb.ToString()[..^2]);
+            }
         }
     }
 

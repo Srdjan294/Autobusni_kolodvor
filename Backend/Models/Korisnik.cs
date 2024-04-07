@@ -1,6 +1,6 @@
 ﻿namespace Backend.Models
 {
-    public class Korisnik
+    public class Korisnik:Entitet
     {
         public string? Ime { get; set; }
         public string? Prezime { get; set; }
