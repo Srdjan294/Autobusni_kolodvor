@@ -21,8 +21,9 @@ namespace Backend.Controllers
         {
 
             var lista = _context.Relacije
-                .Include(x => x.Mjesto)
-                .Where(x => x.Mjesto.Sifra == entitet.Sifra)
+                .Include(x => x.Polaziste)
+                .Include(x => x.Odrediste)
+                .Where(x => x.Polaziste.Sifra == entitet.Sifra || x.Odrediste.Sifra == entitet.Sifra)
                 .ToList();
             if (lista != null &&  lista.Count > 0) 
             {
@@ -30,7 +31,7 @@ namespace Backend.Controllers
                 sb.Append("Mjesto se ne može obrisati jer je postavljen na relacijama: ");
                 foreach (var e in lista) 
                 {
-                    sb.Append(e.Naziv).Append(", ");
+                    sb.Append(e.Polaziste).Append(", ");
                 }
                 throw new Exception(sb.ToString()[..^2]);
             }

@@ -29,9 +29,11 @@ export default function NavBar(){
                     <NavDropdown.Item 
                     onClick={()=>navigate(RoutesNames.MJESTO_PREGLED)}
                     >Mjesta</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                       #
-                    </NavDropdown.Item>
+
+                    <NavDropdown.Item 
+                    onClick={() => navigate(RoutesNames.KORISNIK_PREGLED)}
+                    >Korisnici</NavDropdown.Item>
+
                     <NavDropdown.Item href="#action/3.3">#</NavDropdown.Item>
                 
                     <NavDropdown.Item href="#action/3.4">
