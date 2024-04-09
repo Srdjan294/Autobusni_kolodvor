@@ -1,6 +1,10 @@
-﻿namespace Backend.Models
+﻿
+
+using Backend.Models;
+
+namespace Backend
 {
-    public class Mjesto:Entitet
+    public class Mjesto : Entitet
     {
         public string? Naziv { get; set; }
     }

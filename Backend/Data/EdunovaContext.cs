@@ -20,6 +20,7 @@ namespace Backend.Data
         {
             modelBuilder.Entity<Relacija>().HasOne(g => g.Mjesto);
 
+
         }
 
     }
