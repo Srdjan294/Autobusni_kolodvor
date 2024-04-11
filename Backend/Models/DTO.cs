@@ -38,7 +38,7 @@ namespace Backend.Models
 
         
 
-        public record StavkaDTORead(int Sifra, int? Racun, int? Realacija, int? Kolicina, DateTime? DatumPutovanja);
+        public record StavkaDTORead(int Sifra, int? Racun, int? Relacija, int? Kolicina, DateTime? DatumPutovanja);
 
             public record StavkaDTOInsertUpdate(
                 [Required(ErrorMessage = "Račun obavezan")]
@@ -53,15 +53,15 @@ namespace Backend.Models
 
 
 
-        public record RelacijaDTORead(int Sifra, int? Polaziste, int? Odrediste, int? Cijena);
+        public record RelacijaDTORead(int Sifra, string? Polaziste, string? Odrediste, decimal? Cijena);
 
          public record RelacijaDTOInsertUpdate(
              [Required(ErrorMessage = "Polazište obavezno")]
-                int? Polaziste,
+                string? Polaziste,
              [Required(ErrorMessage = "Odredište obavezno")]
-                int? Odrediste,
+                string? Odrediste,
              [Required(ErrorMessage = "Cijena obavezna")]
-                int? Cijena
+                decimal? Cijena
         );
 
 

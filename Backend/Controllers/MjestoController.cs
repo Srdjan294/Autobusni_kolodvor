@@ -31,7 +31,7 @@ namespace Backend.Controllers
                 sb.Append("Mjesto se ne može obrisati jer je postavljen na relacijama: ");
                 foreach (var e in lista) 
                 {
-                    sb.Append(e.Polaziste).Append(", ");
+                    sb.Append(e.Polaziste.Naziv + "/" + e.Odrediste).Append(", ");
                 }
                 throw new Exception(sb.ToString()[..^2]);
             }

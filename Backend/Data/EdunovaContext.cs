@@ -20,6 +20,8 @@ namespace Backend.Data
 
         public DbSet<Racun> Racuni  { get; set; }
 
+        public DbSet<Stavka> Stavke { get; set; }
+
 
 
 
@@ -32,6 +34,15 @@ namespace Backend.Data
             modelBuilder.Entity<Relacija>().HasOne(g => g.Polaziste);
 
             modelBuilder.Entity<Racun>().HasOne(g => g.Korisnik);
+
+            
+
+
+
+
+
+
+
 
 
 
