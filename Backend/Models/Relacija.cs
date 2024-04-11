@@ -6,10 +6,10 @@ namespace Backend.Models
     public class Relacija:Entitet
     {
         [ForeignKey("polaziste")] 
-        public Mjesto? Polaziste { get; set; }
+        public required Mjesto? Polaziste { get; set; }
 
         [ForeignKey("odrediste")]
-        public Mjesto? Odrediste { get; set; }
+        public required Mjesto? Odrediste { get; set; }
         public decimal? Cijena { get; set; }
     }
 }
