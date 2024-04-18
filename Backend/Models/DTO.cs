@@ -53,13 +53,13 @@ namespace Backend.Models
 
 
 
-        public record RelacijaDTORead(int Sifra, string? Polaziste, string? Odrediste, decimal? Cijena);
+        public record RelacijaDTORead(int Sifra, string? PolazisteNaziv, string? OdredisteNaziv, decimal? Cijena);
 
          public record RelacijaDTOInsertUpdate(
              [Required(ErrorMessage = "Polazište obavezno")]
-                string? Polaziste,
+                string? PolazisteSifra,
              [Required(ErrorMessage = "Odredište obavezno")]
-                string? Odrediste,
+                string? OdredisteSifra,
              [Required(ErrorMessage = "Cijena obavezna")]
                 decimal? Cijena
         );
