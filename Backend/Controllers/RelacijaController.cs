@@ -56,7 +56,7 @@ namespace Backend.Controllers
         {
             return _context.Relacije.Include(g => g.Polaziste)
                     .Include(g => g.Odrediste)
-                    .Include(g => g.Cijena)
+                   // .Include(g => g.Cijena)
                     .FirstOrDefault(x => x.Sifra == sifra) ?? throw new Exception("Ne postoji relacija s šifrom " + sifra + " u bazi");
         }
 
@@ -66,7 +66,7 @@ namespace Backend.Controllers
         {
             var polaziste = _context.Mjesta.Find(dto.PolazisteSifra) ?? throw new Exception("Ne postoji polaziste s šifrom " + dto.PolazisteSifra + " u bazi");
             var odrediste = _context.Mjesta.Find(dto.OdredisteSifra) ?? throw new Exception("Ne postoji odredište s šifrom " + dto.OdredisteSifra + " u bazi");
-            var cijena = _context.Relacije.Find(dto.Cijena) ?? throw new Exception("Nema cijene");
+            //var cijena = _context.Relacije.Find(dto.Cijena) ?? throw new Exception("Nema cijene");
 
 
        
