@@ -11,10 +11,10 @@ export default function Korisnici(){
     const [korisnici, setKorisnici] = useState();
     const navigate = useNavigate();
 
-    async function dohvatiKorisnike(){
+    async function dohvatiKorisnici(){
         await KorisnikService.get()
         .then((odg)=>{
-            setKorisnike(odg);
+            setKorisnici(odg);
         })
         .catch((e)=>{
             console.log(e);
@@ -22,7 +22,7 @@ export default function Korisnici(){
     }
 
     useEffect(()=>{
-        dohvatiKorisnike();
+        dohvatiKorisnici();
     },[]);
 
 
@@ -33,7 +33,7 @@ export default function Korisnici(){
             alert('Pogledaj konzolu');
             return;
         }
-        dohvatiKorisnike();
+        dohvatiKorisnici();
 
     }
 
@@ -58,13 +58,13 @@ export default function Korisnici(){
                     <tbody>
                         {korisnici && korisnici.map((korisnik,index)=>(
                             <tr key={index}>
-                                <td>{korisnik.ime}</td>
-                                <td>{korisnik.prezime}</td>
-                                <td>{korisnik.brojMobitela}</td>
-                                <td>{korisnik.email}</td>
+                                <td>{korisnici.ime}</td>
+                                <td>{korisnici.prezime}</td>
+                                <td>{korisnici.brojMobitela}</td>
+                                <td>{korisnici.email}</td>
                                 <td>
                                     <Button
-                                    onClick={() => obrisi(mjesto.sifra)}
+                                    onClick={() => obrisi(korisnik.sifra)}
                                     variant = 'danger'
                                     >
                                     Obriši
