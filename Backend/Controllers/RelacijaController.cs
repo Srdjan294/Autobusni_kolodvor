@@ -25,7 +25,7 @@ namespace Backend.Controllers
         {
             var polaziste = _context.Mjesta.Find(dto.PolazisteSifra) ?? throw new Exception("Ne postoji polazište s šifrom " + dto.PolazisteSifra + " u bazi");
             var odrediste = _context.Mjesta.Find(dto.OdredisteSifra) ?? throw new Exception("Ne postoji odredište s šifrom " + dto.OdredisteSifra + " u bazi");
-            var cijena = _context.Relacije.Find(dto.Cijena) ?? throw new Exception("Nema cijene");
+          //  var cijena = _context.Relacije.Find(dto.Cijena) ?? throw new Exception("Nema cijene");
             var entitet = new Relacija
             {
                 Polaziste = polaziste,

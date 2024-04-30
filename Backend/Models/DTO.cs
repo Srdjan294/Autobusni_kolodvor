@@ -57,9 +57,9 @@ namespace Backend.Models
 
          public record RelacijaDTOInsertUpdate(
              [Required(ErrorMessage = "Polazište obavezno")]
-                string? PolazisteSifra,
+                int? PolazisteSifra,
              [Required(ErrorMessage = "Odredište obavezno")]
-                string? OdredisteSifra,
+                int? OdredisteSifra,
              [Required(ErrorMessage = "Cijena obavezna")]
                 decimal? Cijena
         );

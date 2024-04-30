@@ -30,8 +30,8 @@ namespace Backend.Mappers
                 c.CreateMap<Relacija, RelacijaDTOInsertUpdate>()
                 .ConstructUsing(entitet =>
                  new RelacijaDTOInsertUpdate(
-                    entitet.Polaziste.Naziv,
-                    entitet.Odrediste.Naziv,
+                    entitet.Polaziste.Sifra,
+                    entitet.Odrediste.Sifra,
                     entitet.Cijena
                     
 
